@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "comprasapp-6f57a": {
+      "hosting": {
+        "practicaAngular": [
+          "comprasapp-6f57a"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "comprasapp-6f57a"
+  }
+}

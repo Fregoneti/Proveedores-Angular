@@ -1,0 +1,159 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset 2">
+        <h2>Añadir nuevo proveedor</h2>
+        <form [formGroup]="proveedorForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+
+                <i class="fa fa-check-circle check" *ngIf="proveedorForm.controls.nombre.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck" *ngIf="proveedorForm.controls.nombre.invalid &&
+                proveedorForm.controls.nombre.touched"></i>
+
+                <input type="text" class="form-control" id="nombre" formControlName="nombre">
+
+                <p class="alert alert-danger" *ngIf="proveedorForm.controls.nombre.invalid &&
+                proveedorForm.controls.nombre.touched">
+                    El campo Nombre es obligatorio.
+                </p>
+            </div>
+
+            <div class="form-group">
+                <label for="cif">C.I.F.</label>
+
+                <i class="fa fa-check-circle check" *ngIf="proveedorForm.controls.cif.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck" *ngIf="proveedorForm.controls.cif.invalid &&
+                proveedorForm.controls.cif.touched"></i>
+
+                <input type="text" class="form-control" id="cif" formControlName="cif">
+
+                <p class="alert alert-danger" *ngIf="proveedorForm.controls.cif.invalid &&
+                proveedorForm.controls.cif.touched">
+                    El campo Proveedor es CIF.
+                </p>
+            </div>
+
+            <div class="form-group">
+                <label for="direccion">Dirección</label>
+
+                <i class="fa fa-check-circle check" *ngIf="proveedorForm.controls.direccion.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck" *ngIf="proveedorForm.controls.direccion.invalid &&
+                proveedorForm.controls.direccion.touched"></i>
+
+                <input type="text" class="form-control" id="direccion" formControlName="direccion">
+
+                <p class="alert alert-danger" *ngIf="proveedorForm.controls.direccion.invalid &&
+                proveedorForm.controls.direccion.touched">
+                    El campo Proveedor es Direccion.
+                </p>
+            </div>
+
+
+            <div class="form-group">
+                <label for="cp">Código Postal</label>
+
+                <i class="fa fa-check-circle check" *ngIf="proveedorForm.controls.cp.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck" *ngIf="proveedorForm.controls.cp.invalid &&
+                proveedorForm.controls.cp.touched"></i>
+
+                <input type="text" class="form-control" id="cp" formControlName="cp">
+
+                <p class="alert alert-danger" *ngIf="proveedorForm.controls.cp.invalid &&
+                proveedorForm.controls.cp.touched">
+                    El campo Proveedor es Codigo Postal.
+                </p>
+            </div>
+
+
+            <div class="form-group">
+                <label for="localidad">Localidad</label>
+
+                <i class="fa fa-check-circle check" *ngIf="proveedorForm.controls.localidad.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck" *ngIf="proveedorForm.controls.localidad.invalid &&
+                proveedorForm.controls.localidad.touched"></i>
+
+                <input type="text" class="form-control" id="localidad" formControlName="localidad">
+
+                <p class="alert alert-danger" *ngIf="proveedorForm.controls.localidad.invalid &&
+                proveedorForm.controls.localidad.touched">
+                    El campo Proveedor es Localidad.
+                </p>
+            </div>
+
+
+           
+            <div class="form-group">
+                <label for="provincia">Provincia</label>
+
+                <select class="form-control" id="provincia" formControlName="provincia">
+                
+
+                    <option [ngValue]="null" disabled> Seleccione la provincia </option>
+                    <option *ngFor="let provincia of provincias " [ngValue]="provincia">{{provincia}} </option>
+                    
+                </select>
+             
+            </div>
+
+            <div class="form-group">
+                <label for="telefono">Teléfono</label>
+
+                <i class="fa fa-check-circle check" *ngIf="proveedorForm.controls.telefono.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck" *ngIf="proveedorForm.controls.telefono.invalid &&
+                proveedorForm.controls.telefono.touched"></i>
+
+                <input type="number" class="form-control" id="telefono" formControlName="telefono">
+
+                <p class="alert alert-danger" *ngIf="proveedorForm.controls.telefono.invalid &&
+                proveedorForm.controls.telefono.touched">
+                    El campo Proveedor es Telefono.
+                </p>
+            </div>
+
+        
+            <div class="form-group">
+                <label for="mail">Correo Electrónico</label>
+
+                <i class="fa fa-check-circle check" *ngIf="proveedorForm.controls.mail.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck" *ngIf="proveedorForm.controls.mail.invalid && proveedorForm.controls.mail.touched"></i>
+
+                <input type="text" class="form-control" id="mail" formControlName="mail">
+
+                <p class="alert alert-danger" *ngIf="proveedorForm.controls.mail.invalid && proveedorForm.controls.mail.touched">
+                    Por favor introduzca una dirección de correo correcta. </p>
+            </div>
+
+
+            <div class="form-group">
+                <label for="p_contacto">Persona de contacto</label>
+
+                <i class="fa fa-check-circle check" *ngIf="proveedorForm.controls.p_contacto.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck" *ngIf="proveedorForm.controls.p_contacto.invalid &&
+                proveedorForm.controls.p_contacto.touched"></i>
+
+                <input type="text" class="form-control" id="p_contacto" formControlName="p_contacto">
+
+                <p class="alert alert-danger" *ngIf="proveedorForm.controls.p_contacto.invalid &&  proveedorForm.controls.p_contacto.touched">
+                    El campo Proveedor es Contacto.
+                </p>
+            </div>
+
+           
+
+
+            <button type="submit" class="btn btn-success" [disabled]="!proveedorForm.valid">Añadir Proveedor</button>
+            <p class="alert alert-danger " *ngIf="!proveedorForm.valid">Por favor complete todos los campos
+            </p>
+            <hr>
+
+            <!-- <pre> Estado Dirty: {{ formpro.controls.email.dirty }}</pre>
+            <pre> Estado Pristine: {{ formpro.controls.email.pristine }}</pre>
+            <pre> Estado Touched: {{ formpro.controls.email.touched }}</pre>
+            <pre> Estado Valid: {{ formpro.controls.email.valid }}</pre>
+            <pre> Estado Invalid: {{ formpro.controls.email.invalid }}</pre> -->
+        </form>
+        <hr>
+        <pre>{{ proveedor | json }}</pre>
+        <hr>
+    </div>
+</div>
